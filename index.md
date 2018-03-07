@@ -1,0 +1,1 @@
+https://leohxj.gitbooks.io/front-end-database/javascript-basic/scoping-and-hoisting.html
