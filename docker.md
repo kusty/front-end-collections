@@ -54,7 +54,7 @@ docker images
 ```
 > 创建镜像
 ```
- sudo docker commit -m "commit message" -a "Docker User" 0b2616b0e5a8(container_id) ouruser/sinatra:v
+ sudo docker commit -m "提交的说明信息" -a "用户信息" 容器ID 仓库名/tag信息
 ```
 > 使用Dockerfile创建镜像
 ```
@@ -64,4 +64,49 @@ RUN apt-get -nginx
 ```
 ```
 sudo docker build -t "tag" .
+```
+> 上传镜像
+```
+sudo docker push url/username/ubuntu:version
+```
+> 删除本地镜像
+```
+docker rmi
+// 在删除镜像之前要先用 docker rm 删掉依赖于这个镜像的所有容器
+```
+
+### 2.3 容器操作
+
+> 2.3.1 启动容器
+```
+sudo docker run ubuntu:14.04
+// 基于镜像新建一个容器并启动
+sudo docker run -t -i ubuntu:14.04 /bin/bash
+```
+```
+sudo docker start [containerId|containerName]
+// 启动一个已终止的容器
+```
+> 2.3.2 重启容器
+```
+sudo docker restart [containerId|containerName]
+```
+> 2.3.3 进入容器
+```
+sudo docker exec -it [containerId|containerName] /bin/bash
+```
+> 2.3.4 获取容器的输出信息
+```
+sudo docker logs [containerId|containerName]
+```
+> 2.3.5 查看容器
+```
+sudo docker ps 查看正在运行的容器
+sudo docker ps -a 查看所有的容器状态
+```
+> 2.3.6 删除容器
+```
+docker rm containerId
+docker rm -f containerId 强制删除运行中的容器
+docker rm $(docker ps –a –q) 删除所有容器
 ```
