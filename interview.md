@@ -1,6 +1,6 @@
 ### 1、使用typeof bar ===“object”来确定bar是否是一个对象时有什么潜在的缺陷？这个陷阱如何避免？
 
--  null在javascript中会被认为是一个对象
+- null在javascript中会被认为是一个对象
 ``` js
 bar = null
 console.log(typeof bar) //"object"
@@ -114,7 +114,7 @@ console.log(typeof NaN) // number
 ```js
 console.log(NaN === NaN) //false
 ```
-测试一个值是否为NaN,javascript提供了一个内置函数isNaN(),但是他不可靠:
+测试一个值是否为NaN,javascript提供了一个内置函数isNaN(),但是他不可靠:
 ```js
 isNaN(NaN);       // true
 isNaN(undefined); // true
@@ -133,7 +133,7 @@ isNaN(' ');       // false: a string with spaces is converted to 0 which is not 
 isNaN(new Date());                // false
 isNaN(new Date().toString());     // true
 ```
-一个比较好的做法是使用 value !== value,只有当value为NaN时上述表达式为才true,另外ES6提供了Number.isNaN()函数,他的与旧的isNaN()不同,也更加可靠
+一个比较好的做法是使用 value !== value,只有当value为NaN时上述表达式为才true,另外ES6提供了Number.isNaN()函数,他的与旧的isNaN()不同,也更加可靠
 
 ## 6、下面的代码将输出到控制台，为什么？
 ```js
@@ -144,10 +144,10 @@ arr2.push(arr3);
 console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1));
 console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1));
 ```
-- 数组的reverse方法不仅以相反的顺序返回数组,还颠倒了数组本身的顺序
+- 数组的reverse方法不仅以相反的顺序返回数组,还颠倒了数组本身的顺序
 - reverse方法返回对数组本身的引用
 
-所以上述代码实际上是这样:
+所以上述代码实际上是这样:
 ```js
 var arr1 = "john".split('');
 arr1 = arr1.reverse();
@@ -175,11 +175,11 @@ console.log( "A" - "B" + 2);
 "NaN2"
 NaN
 ```
-- 示例2中第二个+为一元运算符,所以javascript会将"2"类型转为数字,然后将+应用于他,相当于视其为正整数2,所以1++"2",实为1+2
+- 示例2中第二个+为一元运算符,所以javascript会将"2"类型转为数字,然后将+应用于他,相当于视其为正整数2,所以1++"2",实为1+2
 - 示例3原理同上,-"1",实际为负数1,1+-"1",实际为1-1
 - 示例5 6中"A"-"B"的值均为NaN,后面+"2"为字符串拼接,而+2为数值相加,NaN任何数值操作均为NaN
 
-### 8、如果数组列表太大，以下递归代码将导致堆栈溢出。你如何解决这个问题，仍然保留递归模式？
+## 8、如果数组列表太大，以下递归代码将导致堆栈溢出。你如何解决这个问题，仍然保留递归模式？
 ```js
 var list = readHugeList();
 var nextListItem = function() {
