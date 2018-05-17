@@ -313,5 +313,22 @@ console.log(1 > 2 < 1); //true
 
 ## 14、考虑如下代码
 ```js
+var a = [1, 2, 3];
 
+//下面代码会不会崩溃？
+a[10] = 99; 
+
+//输出什么？
+console.log(a[6]);
+```
+- 不会崩溃，javascript引擎会使得3-9变成空插槽，所以a[10] = 99后，数组a变成如下形式：
+```js
+[1, 2, 3, empty × 7, 99]
+```
+- 所以a[6] 输出undefined，但是索引3-9依然为空而不是被undefined填充，这会在某些情况下导致些重要的差别。例如使用map的时候，空插槽依然为空，但是undefined插槽会利用传入的函数重新映射
+```js
+var b = [undefined];
+b[2] = 1;
+console.log(b);             // (3) [undefined, empty × 1, 1]
+console.log(b.map(e => 7)); // (3) [7,         empty × 1, 7]
 ```
