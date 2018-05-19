@@ -1,4 +1,6 @@
-### 1、使用typeof bar ===“object”来确定bar是否是一个对象时有什么潜在的缺陷？这个陷阱如何避免？
+# 整理的一些问题
+
+## 1、使用typeof bar ===“object”来确定bar是否是一个对象时有什么潜在的缺陷？这个陷阱如何避免？
 
 - null在javascript中会被认为是一个对象
 ``` js
@@ -332,3 +334,9 @@ b[2] = 1;
 console.log(b);             // (3) [undefined, empty × 1, 1]
 console.log(b.map(e => 7)); // (3) [7,         empty × 1, 7]
 ```
+
+## 15、typeof undefined == typeof NULL的值是什么？
+
+值为true，首先javascript区分大小写，所以NULL不同于null，而是被当作一个未被定义的变量，因此两边都是 "undefined"
+
+## 16、javascript中如何实现
